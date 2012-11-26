@@ -1,5 +1,5 @@
 Lojas::Application.routes.draw do
-  get "shops/new"
+  resources :shops
 
   root to: 'static_pages#home'
 

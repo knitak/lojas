@@ -9,7 +9,7 @@ group :development, :test do
 	gem 'rspec-rails', '2.11.0'
 	gem 'guard-rspec', '1.2.1'
 	gem 'guard-spork', '1.2.0'
-  	gem 'spork', '0.9.2'
+  gem 'spork', '0.9.2'
 end
 
 group :assets do
@@ -29,6 +29,7 @@ group :test do
   gem 'rb-fchange', '0.0.5'
   gem 'rb-notifu', '0.0.4'
   gem 'win32console', '1.3.0'
+  gem 'factory_girl_rails', '4.1.0'
 end
 
 group :production do
