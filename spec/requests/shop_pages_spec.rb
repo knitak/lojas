@@ -28,6 +28,13 @@ describe "ShopPages" do
       it "should not create a shop" do
         expect { click_button submit }.not_to change(Shop, :count)
       end
+
+      describe "after submission" do
+        before { click_button submit }
+
+        it { should have_selector('title', text: 'Nova Loja') }
+        it { should have_content('error') }
+      end
     end
 
     describe "with valid information" do
@@ -39,6 +46,14 @@ describe "ShopPages" do
 
       it "should create a shop" do
         expect { click_button submit }.to change(Shop, :count).by(1)
+      end
+
+      describe "after saving the shop" do
+        before { click_button submit }
+        let(:shop) { Shop.find_by_name('Loja') }
+
+        it { should have_selector('title', text: shop.name) }
+        it { should have_selector('div.alert.alert-success', text: 'Bem vindo/a') }
       end
     end
   end
