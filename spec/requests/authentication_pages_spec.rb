@@ -35,5 +35,7 @@ describe "AuthenticationPages" do
       #it { should have_link('Profile', href: shops_path(shop)) }
       it { should_not have_link('Pesquisar', href: pesquisa_path) }
     end
+
+    
  
 end

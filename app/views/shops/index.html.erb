@@ -1,0 +1,14 @@
+<% provide(:title, 'Lojas') %>
+<h1>Lojas</h1>
+
+<%= will_paginate %>
+
+<ul class="shops">
+  <% @shops.each do |shop| %>
+    <li>
+      <%= link_to shop.name, shop %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>

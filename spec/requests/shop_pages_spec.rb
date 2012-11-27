@@ -3,7 +3,32 @@ require 'spec_helper'
 describe "ShopPages" do
   subject { page }
 
-   describe "profile page" do
+  describe "index" do
+   let(:shop) { FactoryGirl.create(:shop) }
+
+    before(:each) do
+      visit shops_path
+    end
+
+    it { should have_selector('title', text: 'Lojas') }
+    it { should have_selector('h1',    text: 'Lojas') }
+
+    describe "pagination" do
+
+      before(:all) { 30.times { FactoryGirl.create(:shop) } }
+      after(:all)  { Shop.delete_all }
+
+      it { should have_selector('div.pagination') }
+
+      it "should list each shop" do
+        Shop.paginate(page: 1).each do |shop|
+          page.should have_selector('li', text: shop.name)
+        end
+      end
+    end
+  end
+
+  describe "profile page" do
    	let(:shop) { FactoryGirl.create(:shop) }
   	before { visit shop_path(shop) }
 

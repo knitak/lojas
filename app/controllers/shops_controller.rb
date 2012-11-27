@@ -17,4 +17,8 @@ class ShopsController < ApplicationController
   		render 'new'
   	end
   end
+
+  def index
+    @shops = Shop.paginate(page: params[:page])    
+  end
 end
