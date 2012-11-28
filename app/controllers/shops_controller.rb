@@ -19,6 +19,8 @@ class ShopsController < ApplicationController
   end
 
   def index
-    @shops = Shop.paginate(page: params[:page])    
+    @shops = Shop.search(params[:name] )   
   end
+
+
 end

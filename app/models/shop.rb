@@ -18,4 +18,15 @@ class Shop < ActiveRecord::Base
   validates :name, presence: true
   validates :address, presence: true
   validates :postalcode, presence: true, length: { maximum: 8 }
+
+
+
+def self.search(search)
+  if search
+    find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+  else
+    find(:all)
+  end
+end
+
 end

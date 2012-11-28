@@ -1,7 +1,8 @@
 <% provide(:title, 'Lojas') %>
 <h1>Lojas</h1>
 
-<%= will_paginate %>
+<%= render 'shops/search' %>
+
 
 <ul class="shops">
   <% @shops.each do |shop| %>
@@ -10,5 +11,3 @@
     </li>
   <% end %>
 </ul>
-
-<%= will_paginate %>
