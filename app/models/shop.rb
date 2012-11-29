@@ -11,19 +11,21 @@
 #
 
 class Shop < ActiveRecord::Base
-  attr_accessible :name, :address, :postalcode
+  attr_accessible :name, :address, :postalcode, :category
 
   #before_save { |shop| shop.name = name.downcase }
 
   validates :name, presence: true
   validates :address, presence: true
   validates :postalcode, presence: true, length: { maximum: 8 }
+  validates :category, presence: true
 
 
 
 def self.search(search)
   if search
     find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    find(:all, :conditions => ['category LIKE ?', "%#{search}%"])
   else
     find(:all)
   end

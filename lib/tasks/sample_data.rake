@@ -3,14 +3,17 @@ namespace :db do
   task populate: :environment do
     Shop.create!(name: "Loja",
                  address: "Rua",
-                 postalcode: "0000-000")
+                 postalcode: "0000-000",
+                 category: "food")
     99.times do |n|
       name  = Faker::Name.name
       address = "Rua #{n+1}"
       postalcode  = "0000-0#{n+1}"
+      category = "food"
       Shop.create!(name: name,
                    address: address,
-                   postalcode: postalcode)
+                   postalcode: postalcode,
+                   category: category)
     end
   end
 end

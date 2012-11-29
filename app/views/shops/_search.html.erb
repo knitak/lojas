@@ -7,7 +7,14 @@
 
       <%= text_field_tag :name, params[:name] %>
 
-      <%= submit_tag "Pesquisar", :name => nil, class: "btn btn-large btn-primary" %>
+      <%= submit_tag "Pesquisar Loja", :name => nil, class: "btn btn-small btn-primary" %>
+      </p>
+
+      <p>
+
+      <%= text_field_tag :category, params[:category] %>
+
+      <%= submit_tag "Pesquisar Categoria", :category => nil, class: "btn btn-small btn-secondary" %>
       </p>
 
     <% end %>
