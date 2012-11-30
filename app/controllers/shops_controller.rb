@@ -19,7 +19,6 @@ class ShopsController < ApplicationController
   end
 
   def index
-    @shops = Shop.search(params[:name] )
-    @shops = Shop.search(params[:category] )
+    @shops = Shop.search(params[:search] )
   end
 end
