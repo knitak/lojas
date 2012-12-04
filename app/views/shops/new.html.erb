@@ -4,7 +4,7 @@
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@shop) do |f| %>
-      <%= render 'shared/error_messages' %>
+      <%= render 'shared/error_messages', object: f.object %>
 
       <%= f.label :name %>
       <%= f.text_field :name %>
@@ -16,7 +16,8 @@
       <%= f.text_field :postalcode %>
 
       <%= f.label :category %>
-      <%= f.text_field :category %>
+      <%= f.collection_select(:category, Category.order(:category), :id, :category)%>
+
 
       <%= f.submit "Criar Nova Loja", class: "btn btn-large btn-primary" %>
     <% end %>

@@ -21,6 +21,7 @@ describe Shop do
    it { should respond_to(:name) }
    it { should respond_to(:address) }
    it { should respond_to(:postalcode) }
+   it { should respond_to(:categories) }
 
    it { should be_valid }
 

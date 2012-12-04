@@ -8,23 +8,25 @@
 #  postalcode :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#
+#  category   :string(255)
 
 class Shop < ActiveRecord::Base
   attr_accessible :name, :address, :postalcode, :category
+  belongs_to :categories
 
-  #before_save { |shop| shop.name = name.downcase }
+  before_save { |shop| shop.name = name.downcase }
+
 
   validates :name, presence: true
   validates :address, presence: true
   validates :postalcode, presence: true, length: { maximum: 8 }
-  validates :category, presence: true
+  validates :category, presence: :true
 
 
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['name LIKE ? OR category LIKE ?',"%#{search}%", "%#{search}%"] )
+      find(:all, :conditions => ['name LIKE ?','category LIKE ?',"%#{search}%", "%#{search}%"] )
     else
       find(:all)
     end

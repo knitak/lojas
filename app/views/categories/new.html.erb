@@ -1,0 +1,16 @@
+<% provide(:title, 'Nova Categoria') %>
+<h1>Nova Categoria</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@category) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+
+      <%= f.label :category %>
+      <%= f.text_field :category %>
+
+      <%= f.submit "Criar Nova Categoria", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

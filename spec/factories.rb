@@ -4,4 +4,9 @@ FactoryGirl.define do
     sequence(:address)  { |n| "Rua #{n}" }
     postalcode "0000-000"
   end
+
+  factory :category do
+    content "Food"
+    shop
+  end
 end

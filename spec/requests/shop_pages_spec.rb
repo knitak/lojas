@@ -30,10 +30,17 @@ describe "ShopPages" do
 
   describe "profile page" do
    	let(:shop) { FactoryGirl.create(:shop) }
+    let!(:c1) { FactoryGirl.create(:category, shop: shop, category: "Foo") }
+
   	before { visit shop_path(shop) }
 
   	it { should have_selector('h1',    text: shop.name) }
   	it { should have_selector('title', text: shop.name) }
+
+    describe "categories" do
+      it { should have_content(c1.category) }
+      it { should have_content(shop.categories) }
+    end
   end
 
   describe "registo page" do
