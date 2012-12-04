@@ -16,7 +16,7 @@
       <%= f.text_field :postalcode %>
 
       <%= f.label :category %>
-      <%= f.collection_select(:category, Category.order(:category), :id, :category)%>
+      <%= f.collection_select :category, Category.all(:order =>'category'), :id, :category%>
 
 
       <%= f.submit "Criar Nova Loja", class: "btn btn-large btn-primary" %>

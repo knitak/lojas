@@ -2,16 +2,18 @@
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_tag shops_path, :method => 'get' do %>
+    <%= form_for shops_path, :method => 'get' do %>
     <p>
       <%= text_field_tag :search, params[:search] %>
 
-      <%= submit_tag "Pesquisar",:name => nil, class: "btn btn-large btn-primary" %>
+      <%= select :search, params[:search], ([["Restaurante"],["Vestuario"],["Banco"]])%>
+
+      <%= submit_tag "Pesquisar",:name => nil, :category => nil, class: "btn btn-large btn-primary" %>
     </p>
 
     <% end %>
 
-    <p>Novo Registo? <%= link_to "Nova Loja", registo_path %></p>
-    <p>Nova Categoria? <%= link_to "Nova Categoria", categories_path %></p>
+    <p><%= link_to "Nova Loja", registo_path %></p>
+    <p><%= link_to "Nova Categoria", categories_path %></p>
   </div>
 </div>

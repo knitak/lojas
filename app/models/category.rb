@@ -17,7 +17,7 @@ class Category < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['category LIKE ?','name LIKE ?', "%#{search}%", "%#{search}%"] )
+      find(:all, :conditions => ['name LIKE ?', 'category LIKE ?', "%#{search}%", "%#{search}%"] )
     else
       find(:all)
     end

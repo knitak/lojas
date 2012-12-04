@@ -5,14 +5,14 @@
     <%= form_tag shops_path, :method => 'get' do %>
     <p><%= text_field_tag :search, params[:search] %>
 
-      <%= select :search, params[:search], ([["Food"],["Vestuário"],["Categoria"]]) %>
+      <%= select :search, params[:search], ([["Restaurante"],["Vestuario"],["Banco"]])%>
 
       <%= submit_tag "Pesquisar",:category => nil, class: "btn btn-large btn-primary" %>
     </p>
 
     <% end %>
 
-    <p>Novo Registo? <%= link_to "Nova Loja", registo_path %></p>
-    <p>Nova Categoria? <%= link_to "Nova Categoria", categories_path %></p>
+    <p><%= link_to "Nova Loja", registo_path %></p>
+    <p><%= link_to "Nova Categoria", categories_path %></p>
   </div>
 </div>
