@@ -13,24 +13,24 @@ describe "ShopPages" do
     it { should have_selector('title', text: 'Lojas') }
     it { should have_selector('h1',    text: 'Lojas') }
 
-    describe "pagination" do
+    #describe "pagination" do
 
-      before(:all) { 30.times { FactoryGirl.create(:shop) } }
-      after(:all)  { Shop.delete_all }
+     # before(:all) { 30.times { FactoryGirl.create(:shop) } }
+      #after(:all)  { Shop.delete_all }
 
-      it { should have_selector('div.pagination') }
+      #it { should have_selector('div.pagination') }
 
-      it "should list each shop" do
-        Shop.paginate(page: 1).each do |shop|
-          page.should have_selector('li', text: shop.name)
-        end
-      end
-    end
+      #it "should list each shop" do
+       # Shop.paginate(page: 1).each do |shop|
+        #  page.should have_selector('li', text: shop.name)
+        #end
+      #end
+    #end
   end
 
   describe "profile page" do
    	let(:shop) { FactoryGirl.create(:shop) }
-    let!(:c1) { FactoryGirl.create(:category, shop: shop, category: "Foo") }
+    
 
   	before { visit shop_path(shop) }
 
@@ -38,7 +38,7 @@ describe "ShopPages" do
   	it { should have_selector('title', text: shop.name) }
 
     describe "categories" do
-      it { should have_content(c1.category) }
+     
       it { should have_content(shop.categories) }
     end
   end

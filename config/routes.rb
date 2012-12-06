@@ -6,7 +6,7 @@ Lojas::Application.routes.draw do
 
   match '/registo', to: 'shops#new'
   match '/shops', to: 'shops#index'
-  match '/categories', to: 'categories#new'
+  match '/regcat', to: 'categories#new'
   match '/categorias', to: 'categories#index'
 
   match '/contacts', to: 'static_pages#contacts'

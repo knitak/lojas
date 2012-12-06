@@ -2,7 +2,6 @@ class ShopsController < ApplicationController
   
   def show
   	@shop = Shop.find(params[:id])
-    
   end
 
   def new
@@ -22,5 +21,6 @@ class ShopsController < ApplicationController
 
   def index
     @shops = Shop.search(params[:search])
+    @categories = Category.find(:all)
   end
 end

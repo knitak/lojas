@@ -12,7 +12,6 @@ class Category < ActiveRecord::Base
   attr_accessible :category
   has_many :shops
 
-
   validates :category, presence: true
 
   def self.search(search)
