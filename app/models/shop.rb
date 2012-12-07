@@ -12,7 +12,7 @@
 
 class Shop < ActiveRecord::Base
   attr_accessible :name, :address, :postalcode, :category
-  belongs_to :categories
+  belongs_to :category
 
   before_save { |shop| shop.name = name.downcase }
 
@@ -26,7 +26,7 @@ class Shop < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['name LIKE ?','category LIKE ?', "%#{search}%", "%#{search}%"] )
+      find(:all, :conditions => ['name LIKE ? OR category LIKE ?', "%#{search}%", "%#{search}%"] )
     else
       find(:all)
     end

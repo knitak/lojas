@@ -6,7 +6,7 @@
     <p>
       <%= text_field_tag :search, params[:search] %>
 
-      <%= select_tag "category",Category.find(:all).collect{|category|[category.category]}  %>
+      <%= select_tag("category", options_for_select(Category.find(:all).collect{|c| [c.category] }), {:include_blank => true })%>
 
       <%= submit_tag "Pesquisar",:name => nil, :category => nil, class: "btn btn-large btn-primary" %>
     </p>

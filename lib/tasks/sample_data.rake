@@ -22,7 +22,7 @@ namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
     Category.create!(category: "Food")
-    99.times do |n|
+    20.times do |n|
       category  = "Categoria #{n+1}"
       Category.create!(category: category)
     end

@@ -5,7 +5,7 @@ class ShopsController < ApplicationController
   end
 
   def new
-  	@shop = Shop.new 	
+  	@shop = Shop.new	
   end
 
   def create
@@ -21,6 +21,5 @@ class ShopsController < ApplicationController
 
   def index
     @shops = Shop.search(params[:search])
-    @categories = Category.find(:all)
   end
 end

@@ -16,7 +16,7 @@ class Category < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['name LIKE ?', 'category LIKE ?', "%#{search}%", "%#{search}%"] )
+      joins(:shops).where('name LIKE ? OR category LIKE ?', "%#{search}%", "%#{search}%")
     else
       find(:all)
     end
