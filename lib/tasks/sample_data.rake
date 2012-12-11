@@ -4,16 +4,19 @@ namespace :db do
     Shop.create!(name: "Loja",
                  address: "Rua",
                  postalcode: "0000-000",
+                 category_id: "1",
                  category: "Food")
     99.times do |n|
       name  = Faker::Name.name
       address = "Rua #{n+1}"
       postalcode  = "0000-0#{n+1}"
       category = "Food"
+      category_id = "1{n+1"
       Shop.create!(name: name,
                    address: address,
                    postalcode: postalcode,
-                   category: category)
+                   category: category,
+                   category_id: category_id)
     end
   end
 end

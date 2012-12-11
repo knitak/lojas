@@ -2,17 +2,19 @@
 #
 # Table name: shops
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  address    :string(255)
-#  postalcode :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  category   :string(255)
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  address     :string(255)
+#  postalcode  :string(255)
+#  category    :string(255)
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  category_id :integer
+#
 
 class Shop < ActiveRecord::Base
-  attr_accessible :name, :address, :postalcode, :category
-  belongs_to :category
+  attr_accessible :name, :address, :postalcode, :category, :category_id
+  belongs_to :category, :foreign_key => :category_id
 
   before_save { |shop| shop.name = name.downcase }
 
@@ -26,7 +28,7 @@ class Shop < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['name LIKE ? OR category LIKE ?', "%#{search}%", "%#{search}%"] )
+      find(:all, :conditions => ['name LIKE ?', "%#{search}%"] )
     else
       find(:all)
     end

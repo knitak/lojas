@@ -10,6 +10,7 @@ class ShopsController < ApplicationController
 
   def create
   	@shop = Shop.new(params[:shop])
+    
 
   	if @shop.save
   		flash[:success] = "Bem vindo/a"

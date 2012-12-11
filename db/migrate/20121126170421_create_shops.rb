@@ -4,6 +4,7 @@ class CreateShops < ActiveRecord::Migration
       t.string :name
       t.string :address
       t.string :postalcode
+      t.integer :category_id
 
       t.timestamps
     end
