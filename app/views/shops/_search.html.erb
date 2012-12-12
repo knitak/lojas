@@ -8,12 +8,15 @@
 
       <%= select_tag(:category, options_for_select(@categories.map{|c| [c.category, c.id] }), {:include_blank => true })%>
 
-      <%= submit_tag "Pesquisar",:name => nil, :category_id => nil, class: "btn btn-large btn-primary" %>
+      <%= select_tag(:city, options_for_select(@cities.map{|v| [v.city, v.id] }), {:include_blank => true })%>
+
+      <%= submit_tag "Pesquisar",:name => nil, :category_id => nil, :city_id => nil, class: "btn btn-large btn-primary" %>
     </p>
 
     <% end %>
 
     <p><%= link_to "Nova Loja", registo_path %></p>
-    <p><%= link_to "Nova Categoria", categories_path %></p>
+    <p><%= link_to "Nova Categoria", regcat_path %></p>
+    <p><%= link_to "Nova Cidade", regcity_path %></p>
   </div>
 </div>

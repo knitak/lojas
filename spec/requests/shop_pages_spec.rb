@@ -41,6 +41,10 @@ describe "ShopPages" do
      
       it { should have_content(shop.categories) }
     end
+
+    describe "cities" do
+      it { should have_content(shop.cities) }
+    end
   end
 
   describe "registo page" do

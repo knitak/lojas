@@ -18,6 +18,8 @@
       <%= f.label :category %>
       <%= f.collection_select :category_id, Category.all(:order =>'category'),  :id, :category, :include_blank => true %>
 
+      <%= f.label :city %>
+      <%= f.collection_select :city_id, City.all(:order =>'city'),  :id, :city, :include_blank => true %>
 
       <%= f.submit "Criar Nova Loja", class: "btn btn-large btn-primary" %>
     <% end %>

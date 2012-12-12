@@ -10,13 +10,15 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  category_id :integer
+#  city_id     :integer
+#  city        :string(255)
 #
 
 require 'spec_helper'
 
 describe Shop do
 
-   before { @shop = Shop.new(name: "Loja Exemplo", address: "Rua Exemplo", postalcode: "0000-000") }
+   before { @shop = Shop.new(name: "Loja Exemplo", address: "Rua Exemplo", postalcode: "0000-000", category: "Food", city: "Lisboa") }
 
    subject { @shop }
 
@@ -24,6 +26,7 @@ describe Shop do
    it { should respond_to(:address) }
    it { should respond_to(:postalcode) }
    it { should respond_to(:categories) }
+   it { should respond_to(:cities) }
 
    it { should be_valid }
 

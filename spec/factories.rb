@@ -7,7 +7,12 @@ FactoryGirl.define do
   end
 
   factory :category do
-    content "Food"
+    category "Food"
+    shop
+  end
+
+  factory :city do
+    city "Lisboa"
     shop
   end
 end

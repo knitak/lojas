@@ -1,17 +1,16 @@
 # == Schema Information
 #
-# Table name: categories
+# Table name: cities
 #
 #  id         :integer          not null, primary key
-#  category   :string(255)
-#  shop_id    :integer
+#  city       :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Category < ActiveRecord::Base
-  attr_accessible :category
+class City < ActiveRecord::Base
+  attr_accessible :city
   has_many :shops
 
-  validates :category, presence: true
+  validates :city, presence: true
 end
