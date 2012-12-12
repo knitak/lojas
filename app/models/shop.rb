@@ -14,7 +14,7 @@
 
 class Shop < ActiveRecord::Base
   attr_accessible :name, :address, :postalcode, :category, :category_id
-  belongs_to :category, :foreign_key => :category_id
+  belongs_to :category
 
   before_save { |shop| shop.name = name.downcase }
 
@@ -26,11 +26,17 @@ class Shop < ActiveRecord::Base
 
 
 
-  def self.search(search)
-    if search
-      find(:all, :conditions => ['name LIKE ?', "%#{search}%"] )
-    else
-      find(:all)
+  def self.search(sea="", category="")
+    if !sea.empty? && !category.empty?
+      find(:all, :conditions => ['name LIKE ? AND category_id = ?', "%#{sea}%", category] )
+      else if !category.empty?
+        find(:all, :conditions => ['category_id = ?', category])
+        else if !sea.empty?
+          find(:all, :conditions => ['name LIKE ?', "%#{sea}%"])
+        else 
+          find(:all)
+        end
+      end
     end
   end
 end

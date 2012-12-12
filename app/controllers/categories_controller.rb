@@ -19,6 +19,6 @@ class CategoriesController < ApplicationController
   end
 
   def index
-  	@categories = Category.search(params[:search] )
+  	@categories = Category.all
   end
 end

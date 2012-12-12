@@ -21,6 +21,12 @@ class ShopsController < ApplicationController
   end
 
   def index
-    @shops = Shop.search(params[:search])
+
+    if params[:search].nil? && params[:category].nil?
+      @shops = Shop.all
+    else
+      @shops = Shop.search(params[:search], params[:category])
+    end
+      @categories = Category.all
   end
 end
